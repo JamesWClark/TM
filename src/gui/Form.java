@@ -26,11 +26,13 @@ public class Form extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("JavaFX Welcome");
+        
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
+        
         Text scenetitle = new Text("Welcome");
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
@@ -43,13 +45,12 @@ public class Form extends Application {
 
         Label pw = new Label("Password:");
         grid.add(pw, 0, 2);
+        
         Button btn = new Button("Sign in");
-        HBox hbBtn = new HBox(10);
-        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
-        hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 4);
+        
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 6);
+        
         btn.setOnAction(new EventHandler<ActionEvent>() {
         	 
             @Override
@@ -58,8 +59,15 @@ public class Form extends Application {
                 actiontarget.setText("Sign in button pressed");
             }
         });
+        
+        HBox hbBtn = new HBox(10);
+        hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
+        hbBtn.getChildren().add(btn);
+        grid.add(hbBtn, 1, 4);
+        
         PasswordField pwBox = new PasswordField();
         grid.add(pwBox, 1, 2);
+        
         Scene scene = new Scene(grid, 300, 275);
         primaryStage.setScene(scene);
         primaryStage.show();
